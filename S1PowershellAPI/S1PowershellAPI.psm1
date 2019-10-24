@@ -15,14 +15,13 @@
         }
     }
 
-$key = Get-Content .\APIKey.txt
-$company = Get-Content .\Tenant.txt
+    [xml]$configFile= Get-Content $PSScriptRoot\Config.xml
 
 $global:header = @{
-    'Authorization' = "APIToken $key"
+    'Authorization' = "APIToken "+$configFile.configuration.appsettings.add[0].value
 
     'Content-Type' = 'application/json'
 }
 
-$global:tenant = $company
-Export-ModuleMember -Function $Public.Basename
+    $global:tenant = $configFile.configuration.appsettings.add[1].value
+    Export-ModuleMember -Function $Public.Basename

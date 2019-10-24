@@ -12,3 +12,6 @@ LONG DESCRIPTION
 
 DETAILED DESCRIPTION
     This is a rudimentary module that allows querying for arbitrary SentinelOne API objects. It also implements searching or retrieving agents, and searching installed applications.
+
+SETUP
+    Edit Config.xml with your API key and tenant name. 

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<configuration>
+  <startup>
+  </startup>
+  <appSettings>
+    <!--Vars -->
+    <add key="APIKey" value="variableValue1"/>
+    <add key="Tenant" value="variableValue2"/>
+  </appSettings>
+</configuration>
