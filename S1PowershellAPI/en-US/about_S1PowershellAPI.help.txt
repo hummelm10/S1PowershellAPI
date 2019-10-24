@@ -1,0 +1,14 @@
+PSTOPIC
+    about_S1PowershellAPI
+
+SHORT DESCRIPTION
+    S1PowershellAPI allows you to work with the SentinelOne API through PowerShell functions
+
+LONG DESCRIPTION
+    S1PowershellAPI allows you to work with the SentinelOne API through PowerShell functions
+
+    You can find API documentation here:
+        https://<tenant>.sentinelone.net/apidocs
+
+DETAILED DESCRIPTION
+    This is a rudimentary module that allows querying for arbitrary SentinelOne API objects. It also implements searching or retrieving agents, and searching installed applications.
