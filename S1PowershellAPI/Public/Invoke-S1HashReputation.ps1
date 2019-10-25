@@ -8,7 +8,7 @@ function Invoke-S1HashReputation
 
     Begin {
 
-        $baseURL="https://$tenant.sentinelone.net"
+        $baseURL='https://'+$tenant+'.sentinelone.net'
         $url = $baseURL+'/web/api/v2.0/hashes/'+$Hash+'/reputation'
     
     }

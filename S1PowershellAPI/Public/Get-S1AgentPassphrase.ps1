@@ -9,7 +9,7 @@ function Get-S1AgentPassphrase
 
     Begin {
 
-    $baseURL="https://$tenant.sentinelone.net"
+    $baseURL='https://'+$tenant+'.sentinelone.net'
     $url = $baseURL+'/web/api/v2.0/agents/passphrases'
     $idurl = $url+'?query='+$Query
         

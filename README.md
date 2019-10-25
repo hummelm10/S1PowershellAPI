@@ -23,7 +23,7 @@ This is not fully featured or tested, but pull requests would be welcome!
 # Get help
     Get-Help -Name S1PowershellAPI
 
-#Set API Key and Tenant (will not persist...for now)
+#Set API Key and Tenant (if you didnt edit the Config.xml manually)
     Set-S1APIKey -APIKey 0000000000000000000000
     Set-S1Tenant -Tenant <tenant>
 ```

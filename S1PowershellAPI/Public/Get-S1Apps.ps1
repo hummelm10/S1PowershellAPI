@@ -23,7 +23,7 @@ function Get-S1Apps
     )
 
     Begin {
-        $baseURL="https://$tenant.sentinelone.net"
+        $baseURL='https://'+$tenant+'.sentinelone.net'
         if(!$ComputerName){
             if($AppName -And !$Publisher){$url = $baseURL+"/web/api/v2.0/installed-applications?name__contains=$AppName&agentIsDecommissioned=false&skipCount=false&limit=100"}
             elseif(!$AppName -And $Publisher){$url = $baseURL+"/web/api/v2.0/installed-applications?publisher__contains=$Publisher&agentIsDecommissioned=false&skipCount=false&limit=100"}
@@ -69,7 +69,7 @@ function Get-S1Apps
                 $outObject | Add-Member -MemberType NoteProperty -Name "riskLevel" -Value $output[$i].riskLevel
                 if($Username){
                     try {
-                        $baseURL="https://$tenant.sentinelone.net"
+                        $baseURL='https://'+$tenant+'.sentinelone.net'
                         $url = $baseURL+'/web/api/v2.0/agents'
                         $idurl = $url+'?query='+$output[$i].agentComputerName
                         $temp = $(Invoke-RestMethod -Uri $idurl -Method Get -Headers $header).data.lastLoggedInUserName

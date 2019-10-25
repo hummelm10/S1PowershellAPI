@@ -6,7 +6,7 @@ function Set-S1APIKey
         [string]$APIKey
     )
 
-$global:header = @{
+$headerTemp = @{
 
     'Authorization' = "APIToken $APIKey"
 
@@ -16,11 +16,19 @@ $global:header = @{
 
     try{
         Write-Host "Testing API Key by enumerating groups..."
-        $baseURL="https://$tenant.sentinelone.net"
+        $baseURL='https://'+$tenant+'.sentinelone.net'
         $url = $baseURL+'/web/api/v2.0/groups?limit=200'
-        $(Invoke-RestMethod -Uri $url -Method Get -Headers $header).data | format-table -Property name, siteId, id
+        $(Invoke-RestMethod -Uri $url -Method Get -Headers $headerTemp).data | format-table -Property name, siteId, id
+        $global:header = $headerTemp
+	    [xml]$configFile= Get-Content "$PSScriptRoot\..\Config.xml"
+	    $configFile.configuration.appsettings.add[0].value = $APIKey
+	    $path="$PSScriptRoot\..\Config.xml"
+	    $configFile.Save($path)
     } catch {
         Write-Host "API call failed, check key and internet access."
+        exit
     }
+
+    
 
 }

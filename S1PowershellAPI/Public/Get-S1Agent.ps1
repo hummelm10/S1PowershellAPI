@@ -11,7 +11,7 @@ function Get-S1Agent
 
     Begin {
 
-    $baseURL="https://$tenant.sentinelone.net"
+    $baseURL='https://'+$tenant+'.sentinelone.net'
     $url = $baseURL+'/web/api/v2.0/agents'
     $idurl = $url+'?query='+$Query
         
