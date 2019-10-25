@@ -8,7 +8,7 @@ function Set-S1APIKey
 
 $headerTemp = @{
 
-    'Authorization' = "APIToken $APIKey"
+    'Authorization' = "APIToken "+$APIKey
 
     'Content-Type' = 'application/json'
 
@@ -20,7 +20,9 @@ $headerTemp = @{
         $url = $baseURL+'/web/api/v2.0/groups?limit=200'
         $(Invoke-RestMethod -Uri $url -Method Get -Headers $headerTemp).data | format-table -Property name, siteId, id
         $global:header = $headerTemp
-	    [xml]$configFile= Get-Content "$PSScriptRoot\..\Config.xml"
+        #Test header saved properly in variable
+        Invoke-RestMethod -Uri $url -Method Get -Headers $header | Out-Null
+        [xml]$configFile= Get-Content "$PSScriptRoot\..\Config.xml"
 	    $configFile.configuration.appsettings.add[0].value = $APIKey
 	    $path="$PSScriptRoot\..\Config.xml"
 	    $configFile.Save($path)

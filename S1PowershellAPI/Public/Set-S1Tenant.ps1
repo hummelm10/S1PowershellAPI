@@ -6,7 +6,7 @@ function Set-S1Tenant
         [string]$Tenant
     )
 
-    $global:tenantTemp = $Tenant
+    $tenantTemp = $Tenant
 
     try{
         Write-Host "Testing Tenant by enumerating groups..."
