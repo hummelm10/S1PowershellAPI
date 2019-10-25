@@ -26,7 +26,6 @@ $headerTemp = @{
 	    $configFile.Save($path)
     } catch {
         Write-Host "API call failed, check key and internet access."
-        exit
     }
 
     

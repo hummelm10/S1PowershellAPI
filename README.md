@@ -11,8 +11,9 @@ This is not fully featured or tested, but pull requests would be welcome!
 # One time setup
     # Download the repository
     # Unzip/unblock the zip
-    # Extract the S1PowershellAPI folder to a module path (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\
-    # Edit 'Config.xml' with your API key and Tenant name. The tenant will be the first part in your url <tenant>.sentinelone.net
+    # Extract the S1PowershellAPI folder to a module path 
+    # (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\
+    # Rename 'Config-RENAME.xml' to Config.xml. 
 
 # Import the module.
     Import-Module S1PowershellAPI    #Alternatively, Import-Module \\Path\To\S1PowershellAPI
@@ -23,7 +24,9 @@ This is not fully featured or tested, but pull requests would be welcome!
 # Get help
     Get-Help -Name S1PowershellAPI
 
-#Set API Key and Tenant (if you didnt edit the Config.xml manually)
+#Set API Key and Tenant
+    # Generate API key in your web console.
+    # The tenant will be the first part in your url <tenant>.sentinelone.net
     Set-S1APIKey -APIKey 0000000000000000000000
     Set-S1Tenant -Tenant <tenant>
 ```
